@@ -8,7 +8,7 @@ type ButtonProps = {
   backgroundColor: Color; //union type
   textColor?: Color;
   pillShape?: boolean;
-  padding: number[];
+  padding: [number, number, number, number];
 };
 
 const Button = ({

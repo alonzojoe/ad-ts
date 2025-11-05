@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Button from "./components/Button";
 function App() {
   const [count, setCount] = useState(0);
+  const ref = useRef<HTMLButtonElement>(null);
 
   const handleClick = () => {
     alert("button clicked");
@@ -30,6 +31,13 @@ function App() {
       >
         React Node {count}
       </Button>
+
+      <button
+        ref={ref}
+        className="bg-green-500 cursor-pointer text-white rounded px-4 py-2 my-10"
+      >
+        Click
+      </button>
     </main>
   );
 }

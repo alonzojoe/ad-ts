@@ -11,6 +11,7 @@ type ButtonProps = {
   padding: [number, number, number, number]; //tuple
   style: React.CSSProperties; //style Type builtin with React using CSSProperties
   borderRadius: Record<string, number>;
+  onClick: () => void;
 };
 
 const Button = ({
@@ -20,10 +21,12 @@ const Button = ({
   padding,
   style,
   borderRadius,
+  onClick,
 }: ButtonProps) => {
   console.log(pillShape);
   return (
     <button
+      onClick={onClick}
       style={style}
       className="bg-blue-500 cursor-pointer text-white rounded px-4 py-2"
     >

@@ -8,7 +8,9 @@ type ButtonProps = {
   backgroundColor: Color; //union type
   textColor?: Color;
   pillShape?: boolean;
-  padding: [number, number, number, number];
+  padding: [number, number, number, number]; //tuple
+  style: React.CSSProperties; //style Type builtin with React using CSSProperties
+  borderRadius: Record<string, number>;
 };
 
 const Button = ({
@@ -16,9 +18,15 @@ const Button = ({
   textColor,
   pillShape,
   padding,
+  style,
+  borderRadius,
 }: ButtonProps) => {
+  console.log(pillShape);
   return (
-    <button className="bg-blue-500 cursor-pointer text-white rounded px-4 py-2">
+    <button
+      style={style}
+      className="bg-blue-500 cursor-pointer text-white rounded px-4 py-2"
+    >
       Click Me!
     </button>
   );

@@ -12,6 +12,8 @@ type ButtonProps = {
   style: React.CSSProperties; //style Type builtin with React using CSSProperties
   borderRadius: Record<string, number>;
   onClick: () => void;
+  children: React.ReactNode;
+  setCount: React.Dispatch<React.SetStateAction<number>>;
 };
 
 const Button = ({
@@ -22,15 +24,17 @@ const Button = ({
   style,
   borderRadius,
   onClick,
+  children,
+  setCount,
 }: ButtonProps) => {
   console.log(pillShape);
   return (
     <button
-      onClick={onClick}
+      onClick={() => setCount((count) => count + 1)}
       style={style}
       className="bg-blue-500 cursor-pointer text-white rounded px-4 py-2"
     >
-      Click Me!
+      {children}
     </button>
   );
 };

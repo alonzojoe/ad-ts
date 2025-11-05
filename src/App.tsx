@@ -1,5 +1,8 @@
+import { useState } from "react";
 import Button from "./components/Button";
 function App() {
+  const [count, setCount] = useState(0);
+
   const handleClick = () => {
     alert("button clicked");
   };
@@ -20,8 +23,11 @@ function App() {
           bottomRight: 10,
           bottomLeft: 10,
         }}
+        setCount={setCount}
         onClick={handleClick}
-      />
+      >
+        React Node {count}
+      </Button>
     </main>
   );
 }

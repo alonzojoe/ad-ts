@@ -9,11 +9,27 @@ type TodoProviderProps = {
 const TodoProvider = ({ children }: TodoProviderProps) => {
   const [todos, setTodos] = useState<ITodo[]>([]);
 
-  const addTodo = (todo: ITodo) => {};
+  const addTodo = (todo: ITodo) => {
+    setTodos((prev) => [todo, ...prev]);
+  };
 
-  const deleteTodo = (id: number) => {};
+  const deleteTodo = (id: number) => {
+    setTodos((todos) => todos.filter((todo) => todo.id !== id));
+  };
 
-  const toggleTodo = (id: number) => {};
+  const toggleTodo = (id: number) => {
+    setTodos((todos) =>
+      todos.map((todo) => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            completed: !todo.completed,
+          };
+        }
+        return todo;
+      })
+    );
+  };
 
   const todoContextValue = {
     todos,

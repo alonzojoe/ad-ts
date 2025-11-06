@@ -23,6 +23,8 @@ type TodoItem = {
 };
 
 const TodoItem = ({ todo }: TodoItem) => {
+  const { deleteTodo, toggleTodo } = useContext(TodoContext) as ITodoContext;
+
   const labelText = todo.completed ? "Undo" : "Mark Completed";
 
   const bg = todo.completed ? "bg-red-500" : "bg-green-500";
@@ -37,12 +39,16 @@ const TodoItem = ({ todo }: TodoItem) => {
         >
           {todo.title}
         </span>
-        <div className="text-red-500 font-semibold text-3xl cursor-pointer">
+        <div
+          onClick={() => deleteTodo(todo.id)}
+          className="text-red-500 font-semibold text-3xl cursor-pointer"
+        >
           &times;
         </div>
       </div>
       <div className="flex items-center justify-end mt-10">
         <button
+          onClick={() => toggleTodo(todo.id)}
           className={`py-1 px-3 rounded ${bg} text-white cursor-pointer hover:opacity-65 transition-all ease-in duration-200`}
         >
           {labelText}

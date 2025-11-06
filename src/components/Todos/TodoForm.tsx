@@ -1,11 +1,9 @@
 import { type FormEvent, useRef } from "react";
-import { useContext } from "react";
-import TodoContext from "../../context/todo/todo-context";
-import type { ITodoContext } from "../../types/@types.todo";
+import useTodoContext from "../../context/todo/hook/useTodoContext";
 
 const TodoForm = () => {
   const titleRef = useRef<HTMLInputElement>(null);
-  const { addTodo } = useContext(TodoContext) as ITodoContext;
+  const { addTodo } = useTodoContext();
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

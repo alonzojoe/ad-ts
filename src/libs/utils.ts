@@ -3,3 +3,8 @@ const convertCurrency = (amount: number, currency: string): string => {
 }
 
 convertCurrency(100, "PHP")
+
+
+const convertToArray = <T,>(value: T): T[] => {
+    return [value]
+}

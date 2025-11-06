@@ -1,18 +1,22 @@
 import { useState, useRef } from "react";
-import Button from "./components/Button";
-import ButtonRef from "./components/ButtonRef";
+import TodoForm from "./components/Todos/TodoForm";
+import TodoLists from "./components/Todos/TodoLists";
+// import Button from "./components/Button";
+// import ButtonRef from "./components/ButtonRef";
 function App() {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLButtonElement>(null);
+  // const [count, setCount] = useState(0);
+  // const ref = useRef<HTMLButtonElement>(null);
 
-  const handleClick = () => {
-    alert("button clicked");
-  };
+  // const handleClick = () => {
+  //   alert("button clicked");
+  // };
 
   return (
     <main className="min-h-screen w-full flex items-center justify-start flex-col py-5">
       <h1 className="text-2xl font-bold mb-5">React-TS</h1>
-      <Button
+      <TodoForm />
+      <TodoLists />
+      {/* <Button
         type="button"
         autoFocus={true}
         backgroundColor="red"
@@ -40,7 +44,7 @@ function App() {
         Click
       </button>
 
-      <ButtonRef countValue={5} countHistory={["a", "b", "c", "d", "e"]} />
+      <ButtonRef countValue={5} countHistory={["a", "b", "c", "d", "e"]} /> */}
     </main>
   );
 }

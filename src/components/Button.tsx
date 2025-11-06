@@ -30,13 +30,15 @@ const Button = ({
 }: ButtonProps) => {
   console.log(pillShape);
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => console.log('event handlers')
+  const handleClick = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => console.log("event handlers");
 
   return (
     <button
       {...rest}
       // onClick={() => setCount((count) => count + 1)}
-      onClick={(event) => console.log('event')}
+      onClick={(event) => console.log("event")}
       style={style}
       className="bg-blue-500 cursor-pointer text-white rounded px-4 py-2"
     >

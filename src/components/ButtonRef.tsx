@@ -15,10 +15,23 @@ type Guest = Omit<User, "sessionToken">;
 
 type ButtonColor = "red" | "blue" | "green";
 
-const ButtonRef = () => {
+type ButtonRefProps<T> = {
+  countValue: T;
+  countHistory: T[];
+};
+
+const ButtonRef = <Type,>({
+  countValue,
+  countHistory,
+}: ButtonRefProps<Type>) => {
   useEffect(() => {
     const buttonColor = localStorage.getItem("buttonColor") as ButtonColor;
   }, []);
+
+  console.log("ButtonRefProps", {
+    countValue,
+    countHistory,
+  });
 
   return (
     <button className="bg-green-500 cursor-pointer text-white rounded px-4 py-2 my-10">

@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import Button from "./components/Button";
+import ButtonRef from "./components/ButtonRef";
 function App() {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLButtonElement>(null);
@@ -38,6 +39,8 @@ function App() {
       >
         Click
       </button>
+
+      <ButtonRef countValue={5} countHistory={["a", "b", "c", "d", "e"]} />
     </main>
   );
 }

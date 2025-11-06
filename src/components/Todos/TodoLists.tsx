@@ -1,12 +1,14 @@
-import { useContext } from "react";
-import TodoContext from "../../context/todo/todo-context";
-import type { ITodoContext, ITodo } from "../../types/@types.todo";
+import type { ITodo } from "../../types/@types.todo";
+import useTodoContext from "../../context/todo/hook/useTodoContext";
 
 const TodoLists = () => {
-  const { todos } = useContext(TodoContext) as ITodoContext;
+  const { todos } = useTodoContext();
 
   return (
     <div className="my-5 w-full max-w-7xl py-3 px-2 grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-5">
+      <div className="col-span-full text-left">
+        <h3>Total Items: {todos.length}</h3>
+      </div>
       {todos.length === 0 ? (
         <div className="col-span-full text-center">
           No record(s) found. Add Some?
@@ -23,7 +25,7 @@ type TodoItem = {
 };
 
 const TodoItem = ({ todo }: TodoItem) => {
-  const { deleteTodo, toggleTodo } = useContext(TodoContext) as ITodoContext;
+  const { deleteTodo, toggleTodo } = useTodoContext();
 
   const labelText = todo.completed ? "Undo" : "Mark Completed";
 
@@ -31,9 +33,9 @@ const TodoItem = ({ todo }: TodoItem) => {
 
   return (
     <div className="p-5 border border-gray-300 rounded shadow-md">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between">
         <span
-          className={`font-semibold text-xl ${
+          className={`font-semibold text-xl mt-3 ${
             todo.completed ? "line-through" : ""
           }`}
         >

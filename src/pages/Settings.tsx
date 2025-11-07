@@ -1,5 +1,5 @@
 import Container from "../components/Shared/Container";
-import { useState } from "react";
+import React, { useState } from "react";
 
 const SETTINGS = ["normal", "light", "heavy"] as const;
 
@@ -28,7 +28,7 @@ type OptionsProps<T> = {
   onSelect: (theme: T) => void;
 };
 
-const Options = <T extends string | number>({
+const Options = <T extends React.ReactNode>({
   selections,
   selected,
   onSelect,

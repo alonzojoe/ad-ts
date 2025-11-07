@@ -5,7 +5,7 @@ const TodoLists = () => {
   const { todos } = useTodoContext();
 
   return (
-    <div className="my-5 w-full max-w-7xl py-3 px-2 grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-5">
+    <div className="my-5 w-full py-3 px-2 grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-5">
       <div className="col-span-full text-left">
         <h3>Total Items: {todos.length}</h3>
       </div>

@@ -12,3 +12,18 @@ const convertToArray = <T,>(value: T): T[] => {
 convertToArray(5)
 convertToArray("a")
 convertToArray(true)
+
+
+
+const getIndexOfArrayItem = <T>(arr: T[], arrayItem: T) => {
+    return arr.findIndex((item) => item === arrayItem)
+}
+
+const arr = [12, 55, 27]
+const indexOf2nd = getIndexOfArrayItem(arr, 55)
+
+const createArrayPair = <T, K>(input1: T, input2: K): [T, K] => {
+    return [input1, input2]
+}
+
+createArrayPair(true, 1)

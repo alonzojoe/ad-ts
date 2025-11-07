@@ -6,7 +6,7 @@ type TodoProviderProps = {
   children: React.ReactNode;
 };
 
-const ACTIONS = {
+export const ACTIONS = {
   ADD_TODO: "add-todo",
   REMOVE_TODO: "remove-todo",
   TOGGLE_TODO: "toggle-todo",

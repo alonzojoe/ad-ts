@@ -1,12 +1,13 @@
 import TodoLists from "../components/Todos/TodoLists";
 import TodoForm from "../components/Todos/TodoForm";
+import Container from "../components/Shared/Container";
 
 const TodoPage = () => {
   return (
-    <div className="flex flex-col items-center justify-center">
+    <Container>
       <TodoForm />
       <TodoLists />
-    </div>
+    </Container>
   );
 };
 

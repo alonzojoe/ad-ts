@@ -1,6 +1,6 @@
-import { useState, useRef } from "react";
-import TodoForm from "./components/Todos/TodoForm";
-import TodoLists from "./components/Todos/TodoLists";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AppLayout from "./layouts/AppLayout";
+import TodoPage from "./pages/TodoPage";
 // import Button from "./components/Button";
 // import ButtonRef from "./components/ButtonRef";
 function App() {
@@ -12,40 +12,47 @@ function App() {
   // };
 
   return (
-    <main className="min-h-screen w-full flex items-center justify-start flex-col py-5">
-      <h1 className="text-2xl font-bold mb-5">React-TS</h1>
-      <TodoForm />
-      <TodoLists />
-      {/* <Button
-        type="button"
-        autoFocus={true}
-        backgroundColor="red"
-        padding={[5, 10, 5, 10]}
-        style={{
-          fontWeight: "bold",
-          color: "#FFF",
-        }}
-        borderRadius={{
-          topLeft: 5,
-          topRight: 5,
-          bottomRight: 10,
-          bottomLeft: 10,
-        }}
-        setCount={setCount}
-        onClick={handleClick}
-      >
-        React Node {count}
-      </Button>
+    <Router>
+      <Routes>
+        <Route path="" element={<AppLayout />}>
+          <Route index element={<TodoPage />} />
+        </Route>
+      </Routes>
+    </Router>
+    // <main className="min-h-screen w-full flex items-center justify-start flex-col py-5">
+    //   <h1 className="text-2xl font-bold mb-5">React-TS</h1>
+    //   <TodoForm />
+    //   <TodoLists />
+    //   {/* <Button
+    //     type="button"
+    //     autoFocus={true}
+    //     backgroundColor="red"
+    //     padding={[5, 10, 5, 10]}
+    //     style={{
+    //       fontWeight: "bold",
+    //       color: "#FFF",
+    //     }}
+    //     borderRadius={{
+    //       topLeft: 5,
+    //       topRight: 5,
+    //       bottomRight: 10,
+    //       bottomLeft: 10,
+    //     }}
+    //     setCount={setCount}
+    //     onClick={handleClick}
+    //   >
+    //     React Node {count}
+    //   </Button>
 
-      <button
-        ref={ref}
-        className="bg-green-500 cursor-pointer text-white rounded px-4 py-2 my-10"
-      >
-        Click
-      </button>
+    //   <button
+    //     ref={ref}
+    //     className="bg-green-500 cursor-pointer text-white rounded px-4 py-2 my-10"
+    //   >
+    //     Click
+    //   </button>
 
-      <ButtonRef countValue={5} countHistory={["a", "b", "c", "d", "e"]} /> */}
-    </main>
+    //   <ButtonRef countValue={5} countHistory={["a", "b", "c", "d", "e"]} /> */}
+    // </main>
   );
 }
 

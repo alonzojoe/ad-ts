@@ -98,7 +98,9 @@ type IDK = Prettify<NestedType>
 
 interface Task {
     title: string;
-    description: string
+    description: string;
+    createdAt: Date;
+    updatedAt: Date;
 }
 
 const updateTask = (task: Task, fieldsToUpdate: Partial<Task>) => {
@@ -111,5 +113,7 @@ const initialTask: Task = {
 }
 
 const updatedTodo = updateTask(initialTask, { description: 'updated description' })
+
+type Ommited = Omit<Task, "createdAt" | "updatedAt">
 
 export default ""

@@ -27,3 +27,18 @@ const createArrayPair = <T, K>(input1: T, input2: K): [T, K] => {
 }
 
 createArrayPair(true, 1)
+
+
+//useful ts
+const person = 'joe'
+type Person = typeof person
+
+const obj = {
+    name: 'Joe',
+    address: 'Pampanga',
+    role: 'Dev'
+}
+
+type Obj = keyof typeof obj
+
+export default ""

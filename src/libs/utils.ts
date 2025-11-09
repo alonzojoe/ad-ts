@@ -95,4 +95,21 @@ type Prettify<T> = {
 
 type IDK = Prettify<NestedType>
 
+
+interface Task {
+    title: string;
+    description: string
+}
+
+const updateTask = (task: Task, fieldsToUpdate: Partial<Task>) => {
+    return { ...task, fieldsToUpdate }
+}
+
+const initialTask: Task = {
+    title: 'Clean the house',
+    description: 'Follow the safety rules on how to clean a house',
+}
+
+const updatedTodo = updateTask(initialTask, { description: 'updated description' })
+
 export default ""

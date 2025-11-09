@@ -116,4 +116,6 @@ const updatedTodo = updateTask(initialTask, { description: 'updated description'
 
 type Ommited = Omit<Task, "createdAt" | "updatedAt">
 
+type Picked = Pick<Task, "title" | "description">
+
 export default ""

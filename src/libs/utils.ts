@@ -116,6 +116,12 @@ const updatedTodo = updateTask(initialTask, { description: 'updated description'
 
 type Ommited = Omit<Task, "createdAt" | "updatedAt">
 
+type Shapes =
+    | { kind: 'circle', radius: number }
+    | { kind: 'square', x: number }
+
+type ExcludeShape = Exclude<Shapes, { kind: 'circle' }>
+
 type Picked = Pick<Task, "title" | "description">
 
 export default ""

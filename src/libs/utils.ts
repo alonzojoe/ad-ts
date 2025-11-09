@@ -80,4 +80,19 @@ const fetchData = async <APIResponse>(): Promise<APIResponse> => {
 type TodoData = Awaited<ReturnType<typeof fetchData<Todo>>>
 
 
+interface MainType {
+    name: string;
+    department: string;
+}
+
+type NestedType = MainType & {
+    isDeveloper: boolean
+}
+
+type Prettify<T> = {
+    [K in keyof T]: T[K]
+} & {}
+
+type IDK = Prettify<NestedType>
+
 export default ""

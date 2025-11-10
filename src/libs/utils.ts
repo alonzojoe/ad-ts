@@ -129,4 +129,16 @@ type APIResponse<T> =
     | { status: 'success', data: T; timestamp: Date }
     | { status: 'error', message: string; timestamp: Date }
 
+let apiResponse1: APIResponse<Todo> = {
+    status: 'success',
+    data: { id: 1, title: 'Go To market', completed: false, userId: 10 },
+    timestamp: new Date()
+}
+
+let apiResponse2: APIResponse<string> = {
+    status: 'error',
+    message: 'An error occured while fetching data.',
+    timestamp: new Date()
+}
+
 export default ""

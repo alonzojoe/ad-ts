@@ -124,4 +124,9 @@ type ExcludeShape = Exclude<Shapes, { kind: 'circle' }>
 
 type Picked = Pick<Task, "title" | "description">
 
+
+type APIResponse<T> =
+    | { status: 'success', data: T; timestamp: Date }
+    | { status: 'error', message: string; timestamp: Date }
+
 export default ""

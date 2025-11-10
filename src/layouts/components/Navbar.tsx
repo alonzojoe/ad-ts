@@ -20,6 +20,14 @@ const Navbar = () => {
             Settings
           </NavLink>
         </li>
+        <li>
+          <NavLink
+            to="/conditional"
+            className={({ isActive }) => (isActive ? "font-bold" : "")}
+          >
+            Conditional
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );

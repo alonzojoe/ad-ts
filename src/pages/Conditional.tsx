@@ -4,7 +4,7 @@ const Conditional = () => {
   return (
     <Container>
       <h1 className="text-2xl font-bold">Conditional</h1>
-      <Child name="John" />
+      <Child name="Jane" gender="female" weight={55} />
     </Container>
   );
 };

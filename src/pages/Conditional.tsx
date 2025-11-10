@@ -11,16 +11,17 @@ const Conditional = () => {
 
 type ChildProps = {
   name: string;
-} & (
-  | {
-      gender: "male";
-      salary: number;
-    }
-  | {
-      gender: "female";
-      weight: number;
-    }
-);
+} & (MaleProps | FemaleProps); //Discriminated Union
+
+type MaleProps = {
+  gender: "male"; //discriminator
+  salary: number;
+};
+
+type FemaleProps = {
+  gender: "female"; //discriminator
+  weight: number;
+};
 
 const Child = ({ name }: ChildProps) => {
   return (

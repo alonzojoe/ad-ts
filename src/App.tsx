@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AppLayout from "./layouts/AppLayout";
 import TodoPage from "./pages/TodoPage";
 import Settings from "./pages/Settings";
+import Conditional from "./pages/Conditional";
 // import Button from "./components/Button";
 // import ButtonRef from "./components/ButtonRef";
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="" element={<AppLayout />}>
           <Route index element={<TodoPage />} />
           <Route path="settings" element={<Settings />} />
+          <Route path="conditional" element={<Conditional />} />
         </Route>
       </Routes>
     </Router>

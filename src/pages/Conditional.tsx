@@ -23,11 +23,18 @@ type FemaleProps = {
   weight: number;
 };
 
-const Child = ({ name }: ChildProps) => {
+const Child = (props: ChildProps) => {
+  //type narrowing
+  if (props.gender === "male") {
+    console.log(props.salary);
+  } else if (props.gender === "female") {
+    console.log(props.weight);
+  }
+
   return (
     <>
       <span>Child Component</span>
-      <h1>{name}</h1>
+      <h1>{props.name}</h1>
     </>
   );
 };

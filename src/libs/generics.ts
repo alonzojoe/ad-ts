@@ -55,3 +55,11 @@ const filterByProperty = <T, K extends keyof T>(items: T[], key: K, value: T[K])
 
 filterByProperty(people, "name", "Alice");
 filterByProperty(people, "age", 30);
+
+const mapProperty = <T, K extends keyof T, R>(items: T[], key: K, transform: (val: T[K]) => R) => {
+    return items.map((item) => transform(item[key]))
+}
+
+mapProperty(people, "name", (n) => n.length);
+mapProperty(people, "age", (a) => a * 2);
+

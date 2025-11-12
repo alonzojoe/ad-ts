@@ -63,3 +63,14 @@ const mapProperty = <T, K extends keyof T, R>(items: T[], key: K, transform: (va
 mapProperty(people, "name", (n) => n.length);
 mapProperty(people, "age", (a) => a * 2);
 
+const mapPropertyv2 = <T, U>(
+    items: T[],
+    transform: (item: T) => U
+): U[] => {
+    return items.map(transform)
+}
+
+mapPropertyv2(people, (person) => ({
+    fullName: person.name,
+    fullAge: person.age
+}))

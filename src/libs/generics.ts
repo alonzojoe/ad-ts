@@ -42,3 +42,16 @@ getProperty(person, "age");
 getProperty(person, "email"); //throw error email doesn't exist on key of person
 
 
+const people = [
+    { name: "Alice", age: 25 },
+    { name: "Bob", age: 30 },
+    { name: "Alice", age: 35 }
+];
+
+const filterByProperty = <T, K extends keyof T>(items: T[], key: K, value: T[K]) => {
+    return items.filter((item) => item[key] === value)
+}
+
+
+filterByProperty(people, "name", "Alice");
+filterByProperty(people, "age", 30);

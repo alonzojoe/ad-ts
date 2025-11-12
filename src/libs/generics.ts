@@ -74,3 +74,22 @@ mapPropertyv2(people, (person) => ({
     fullName: person.name,
     fullAge: person.age
 }))
+
+const filterAndTransformed = <T, U>(
+    items: T[],
+    filter: (item: T) => boolean,
+    transform: (item: T) => U
+): U[] => {
+    return items
+        .filter(filter)
+        .map(transform)
+}
+
+filterAndTransformed(
+    people,
+    (person) => person.age >= 30,
+    (people) => ({
+        fullName: people.name,
+        fullAge: people.age
+    })
+)

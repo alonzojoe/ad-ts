@@ -25,3 +25,20 @@ const mergeObjects = <T, U>(obj1: T, obj2: U) => {
 
 mergeObjects({ name: "Alice" }, { age: 25 });
 mergeObjects({ id: 1 }, { isAdmin: true });
+
+const person = { name: "Alice", age: 25 }
+
+const getProperty = <T extends object, K extends keyof T>(obj: T, key: K) => {
+    if (!(key in obj)) { //why it shows here T is not assingable to type object?
+        throw new Error('Key doesnt exists in object')
+    }
+
+    return obj[key]
+}
+
+
+getProperty(person, "name");
+getProperty(person, "age");
+getProperty(person, "email"); //throw error email doesn't exist on key of person
+
+

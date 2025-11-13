@@ -28,3 +28,22 @@ const movePlayer = (key: string) => {
 }
 
 movePlayer(Movement.Down)
+
+
+
+enum StatusCode {
+    OK = 200,
+    BadRequest = 400,
+    NotFound = 404,
+}
+
+
+export const handleStatusCode = (code: number) => {
+    if (code === StatusCode.OK) {
+        console.log('200 Ok')
+    } else if (code === StatusCode.BadRequest) {
+        console.log(`400 Bad request.`)
+    } else {
+        console.log(`404 not found.`)
+    }
+}

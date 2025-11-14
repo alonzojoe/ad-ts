@@ -10,8 +10,8 @@ const TodoLists = () => {
   const debounceValue = useDebounce(input);
 
   const filteredTodos = useMemo(() => {
-    return todos.filter(
-      (todo) => todo.title.toLowerCase() === debounceValue.toLowerCase()
+    return todos.filter((todo) =>
+      todo.title.toLowerCase().includes(debounceValue.toLowerCase())
     );
   }, [debounceValue, todos]);
 

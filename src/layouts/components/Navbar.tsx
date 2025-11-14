@@ -1,41 +1,20 @@
 import { NavLink } from "react-router-dom";
+import { ROUTES } from "../../constants/routes";
 
 const Navbar = () => {
   return (
     <nav className="p-3 shadow-md w-full">
       <ul className="flex items-center justify-start gap-5">
-        <li>
-          <NavLink
-            to=""
-            className={({ isActive }) => (isActive ? "font-bold" : "")}
-          >
-            Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="todos"
-            className={({ isActive }) => (isActive ? "font-bold" : "")}
-          >
-            Todo
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/settings"
-            className={({ isActive }) => (isActive ? "font-bold" : "")}
-          >
-            Settings
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/conditional"
-            className={({ isActive }) => (isActive ? "font-bold" : "")}
-          >
-            Conditional
-          </NavLink>
-        </li>
+        {ROUTES.map(({ id, path, name }) => (
+          <li key={id}>
+            <NavLink
+              to={path}
+              className={({ isActive }) => (isActive ? "font-bold" : "")}
+            >
+              {name}
+            </NavLink>
+          </li>
+        ))}
       </ul>
     </nav>
   );

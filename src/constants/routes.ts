@@ -1,6 +1,6 @@
 import type { Route } from "../context/todo/types/types"
 
-export const Routes: Route[] = [
+export const ROUTES: Route[] = [
     {
         id: 1,
         path: "",
@@ -18,7 +18,7 @@ export const Routes: Route[] = [
     },
     {
         id: 4,
-        path: "/conditionals",
+        path: "/conditional",
         name: 'Conditionals'
     },
 ]

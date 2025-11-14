@@ -1,12 +1,39 @@
+import { useMemo, useState, type ChangeEvent } from "react";
+import useDebounce from "../../hooks/useDebounce";
 import type { ITodo } from "../../types/@types.todo";
 import useTodoContext from "../../context/todo/hook/useTodoContext";
 
 const TodoLists = () => {
   const { todos } = useTodoContext();
+  const [input, setInput] = useState("");
+
+  const debounceValue = useDebounce(input);
+
+  const filteredTodos = useMemo(() => {
+    return todos.filter((todo) =>
+      todo.title.toLowerCase().includes(debounceValue.toLowerCase())
+    );
+  }, [debounceValue, todos]);
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+
+    setInput(value);
+  };
+
+  console.log("filteredTodos", filteredTodos);
 
   return (
     <div className="my-5 w-full py-3 px-2 grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-5">
-      <div className="col-span-full text-left">
+      <div className="col-span-full flex justify-between items-center flex-wrap">
+        <div className="flex items-center gap-2">
+          <h3>Search:</h3>
+          <input
+            onChange={handleChange}
+            className="border border-gray-400 txt-base py-1 px-2 rounded outline-0 focus:ring-0"
+            type="text"
+          />
+        </div>
         <h3>Total Items: {todos.length}</h3>
       </div>
       {todos.length === 0 ? (
@@ -14,7 +41,7 @@ const TodoLists = () => {
           No record(s) found. Add Some?
         </div>
       ) : (
-        todos.map((todo) => <TodoItem todo={todo} key={todo.id} />)
+        filteredTodos.map((todo) => <TodoItem todo={todo} key={todo.id} />)
       )}
     </div>
   );

@@ -3,6 +3,7 @@ import AppLayout from "./layouts/AppLayout";
 import TodoPage from "./pages/TodoPage";
 import Settings from "./pages/Settings";
 import Conditional from "./pages/Conditional";
+import Home from "./pages/Home";
 // import Button from "./components/Button";
 // import ButtonRef from "./components/ButtonRef";
 function App() {
@@ -17,7 +18,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="" element={<AppLayout />}>
-          <Route index element={<TodoPage />} />
+          <Route index element={<Home />} />
+          <Route path="todos" element={<TodoPage />} />
           <Route path="settings" element={<Settings />} />
           <Route path="conditional" element={<Conditional />} />
         </Route>

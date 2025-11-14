@@ -9,6 +9,14 @@ const Navbar = () => {
             to=""
             className={({ isActive }) => (isActive ? "font-bold" : "")}
           >
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="todos"
+            className={({ isActive }) => (isActive ? "font-bold" : "")}
+          >
             Todo
           </NavLink>
         </li>

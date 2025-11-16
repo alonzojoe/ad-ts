@@ -7,7 +7,7 @@ const TodoLists = () => {
   const { todos } = useTodoContext();
   const [input, setInput] = useState("");
 
-  const debounceValue = useDebounce(input);
+  const debounceValue = useDebounce(input, 500);
 
   const filteredTodos = useMemo(() => {
     return todos.filter((todo) =>

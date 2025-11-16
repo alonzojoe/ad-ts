@@ -34,7 +34,7 @@ const TodoLists = () => {
             type="text"
           />
         </div>
-        <h3>Total Items: {todos.length}</h3>
+        <h3>Total Items: {filteredTodos.length}</h3>
       </div>
       {todos.length === 0 ? (
         <div className="col-span-full text-center">

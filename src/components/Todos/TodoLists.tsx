@@ -7,7 +7,7 @@ const TodoLists = () => {
   const { todos } = useTodoContext();
   const [input, setInput] = useState("");
 
-  const debounceValue = useDebounce(input);
+  const debounceValue = useDebounce(input, 500);
 
   const filteredTodos = useMemo(() => {
     return todos.filter((todo) =>
@@ -34,7 +34,7 @@ const TodoLists = () => {
             type="text"
           />
         </div>
-        <h3>Total Items: {todos.length}</h3>
+        <h3>Total Items: {filteredTodos.length}</h3>
       </div>
       {todos.length === 0 ? (
         <div className="col-span-full text-center">
@@ -42,6 +42,11 @@ const TodoLists = () => {
         </div>
       ) : (
         filteredTodos.map((todo) => <TodoItem todo={todo} key={todo.id} />)
+      )}
+      {debounceValue && filteredTodos.length === 0 && (
+        <div className="col-span-full text-center">
+          Search value: {debounceValue} — No record(s) found.
+        </div>
       )}
     </div>
   );

@@ -43,6 +43,11 @@ const TodoLists = () => {
       ) : (
         filteredTodos.map((todo) => <TodoItem todo={todo} key={todo.id} />)
       )}
+      {debounceValue && filteredTodos.length === 0 && (
+        <div className="col-span-full text-center">
+          Search value: {debounceValue} — No record(s) found.
+        </div>
+      )}
     </div>
   );
 };

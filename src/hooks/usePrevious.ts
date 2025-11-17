@@ -9,7 +9,7 @@ const usePrevious = <T>(current: T) => {
     }, [current])
 
 
-    return previousValue;
+    return previousValue.current;
 }
 
 export default usePrevious;

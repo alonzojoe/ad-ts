@@ -21,4 +21,9 @@ export const ROUTES: Route[] = [
         path: "/conditional",
         name: 'Conditionals'
     },
+    {
+        id: 5,
+        path: "/hooks",
+        name: "Hooks"
+    }
 ]

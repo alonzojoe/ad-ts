@@ -2,20 +2,20 @@ import { useState } from "react";
 import usePrevious from "../hooks/usePrevious";
 import Container from "../components/Shared/Container";
 
-const gerRandomColor = () => {
+const getRandomColor = () => {
   const colors = ["red", "blue", "green", "pink", "purple"];
   return colors[Math.floor(Math.random() * colors.length)];
 };
 
 const Hooks = () => {
-  const [color, setColor] = useState(gerRandomColor());
+  const [color, setColor] = useState(getRandomColor());
   const previousColor = usePrevious(color);
 
   const handleClick = () => {
     const getNewColor = () => {
-      const newColor = gerRandomColor();
+      const newColor = getRandomColor();
       if (color === newColor) {
-        gerRandomColor();
+        getRandomColor();
       } else {
         setColor(newColor);
       }

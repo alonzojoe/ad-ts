@@ -22,8 +22,8 @@ const Hooks = () => {
       <UsePrevious />
 
       <GridContainer className="mx-auto w-full gap-5" cols={4}>
-        {HOOKS.map(({ title, description }) => (
-          <HookItem title={title} description={description} />
+        {HOOKS.map(({ id, title, description }) => (
+          <HookItem key={id} title={title} description={description} />
         ))}
       </GridContainer>
     </Container>

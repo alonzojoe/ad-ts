@@ -37,7 +37,7 @@ type HookItemProps = {
 
 const HookItem = ({ title, description }: HookItemProps) => {
   return (
-    <div className="p-5 bg-gray-100 rounded-xl shadow-md">
+    <div className="p-5 bg-gray-100 rounded-xl shadow-md cursor-pointer transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
       <h1 className="font-bold text-2xl text-sky-500 leading-tight">{title}</h1>
       <p className="text-lg mt-3">{description}</p>
     </div>

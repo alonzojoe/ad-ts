@@ -3,7 +3,12 @@ import UsePrevious from "../features/hooks/UsePrevious";
 import GridContainer from "../components/Shared/GridContainer";
 
 const HOOKS = [
-  { id: 1, title: "useDebounce", description: "Description here" },
+  {
+    id: 1,
+    title: "useDebounce",
+    description:
+      "Delay the execution of function or state update with useDebounce",
+  },
   { id: 2, title: "useDebounce", description: "Description here" },
   { id: 3, title: "useDebounce", description: "Description here" },
   { id: 4, title: "useDebounce", description: "Description here" },
@@ -16,7 +21,7 @@ const Hooks = () => {
 
       <UsePrevious />
 
-      <GridContainer className="w-full gap-5" cols={4}>
+      <GridContainer className="mx-auto w-full gap-5" cols={4}>
         {HOOKS.map(({ title, description }) => (
           <HookItem title={title} description={description} />
         ))}
@@ -32,9 +37,9 @@ type HookItemProps = {
 
 const HookItem = ({ title, description }: HookItemProps) => {
   return (
-    <div>
-      <h1>{title}</h1>
-      <p>{description}</p>
+    <div className="p-5 bg-gray-100 rounded-xl shadow-md">
+      <h1 className="font-bold text-2xl text-sky-500 leading-tight">{title}</h1>
+      <p className="text-lg mt-3">{description}</p>
     </div>
   );
 };

@@ -3,3 +3,10 @@ export interface Route {
     path: string;
     name: string;
 }
+
+export interface Hook {
+    id: number;
+    name: string;
+    description: string;
+    path: string;
+}

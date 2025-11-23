@@ -22,7 +22,7 @@ const HookItem = ({ name, description, path }: HookItemProps) => {
   const navigate = useNavigate();
 
   const visitPage = (path: string) => {
-    navigate(`${path}`);
+    navigate(`/hooks${path}`);
   };
 
   return (

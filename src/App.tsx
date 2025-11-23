@@ -6,6 +6,7 @@ import Conditional from "./pages/Conditional";
 import Home from "./pages/Home";
 import Hooks from "./pages/Hooks";
 import HookNav from "./features/hooks/HookNav";
+import UsePrevious from "./features/hooks/UsePrevious";
 // import Button from "./components/Button";
 // import ButtonRef from "./components/ButtonRef";
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path="conditional" element={<Conditional />} />
           <Route path="hooks" element={<Hooks />}>
             <Route index element={<HookNav />} />
+            <Route path="usePrevious" element={<UsePrevious />} />
           </Route>
         </Route>
       </Routes>

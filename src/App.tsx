@@ -23,7 +23,9 @@ function App() {
           <Route path="todos" element={<TodoPage />} />
           <Route path="settings" element={<Settings />} />
           <Route path="conditional" element={<Conditional />} />
-          <Route path="hooks" element={<Hooks />} />
+          <Route path="hooks" element={<Hooks />}>
+            <Route index element={<div>Route list</div>} />
+          </Route>
         </Route>
       </Routes>
     </Router>

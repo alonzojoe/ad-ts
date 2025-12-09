@@ -1,4 +1,10 @@
+import { useRef, useState } from "react";
+import SignatureCanvas from "react-signature-canvas";
+
 const UseLocalStorage = () => {
+  const sigRef = useRef(null);
+  const [signatureURL, setSignatureURL] = useState("");
+
   const reloadPage = () => window.location.reload();
 
   const clearStorage = () => {
@@ -16,6 +22,12 @@ const UseLocalStorage = () => {
         <span onClick={clearStorage} className="cursor-pointer">
           Clear Storage
         </span>
+      </div>
+      <div className="mt-5 w-100 flex flex-col justify-center items-center gap-3 p-5 bg-gray-100 shadow-md rounded">
+        <SignatureCanvas
+          ref={sigRef}
+          canvasProps={{ width: 500, height: 200 }}
+        />
       </div>
     </div>
   );

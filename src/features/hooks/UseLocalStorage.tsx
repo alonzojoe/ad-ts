@@ -1,9 +1,10 @@
-import { useRef, useState } from "react";
+import { useRef, useEffect } from "react";
 import SignatureCanvas from "react-signature-canvas";
+import useLocalStorage from "../../hooks/useLocalStorage";
 
 const UseLocalStorage = () => {
-  const sigRef = useRef(null);
-  const [signatureURL, setSignatureURL] = useState("");
+  const sigRef = useRef<SignatureCanvas>(null);
+  const [signature, setSignature] = useLocalStorage("signature", "");
 
   const reloadPage = () => window.location.reload();
 
@@ -11,6 +12,18 @@ const UseLocalStorage = () => {
     window.localStorage.clear();
     reloadPage();
   };
+
+  const handleEnd = () => {
+    if (!sigRef.current) return;
+    const url = sigRef.current.toDataURL("image/png");
+    setSignature(url);
+  };
+
+  useEffect(() => {
+    if (signature && sigRef.current) {
+      sigRef.current.fromDataURL(signature);
+    }
+  }, []);
 
   return (
     <div className="flex flex-col space-y-2 items-center justify-center p-3">
@@ -26,6 +39,7 @@ const UseLocalStorage = () => {
       <div className="mt-5 w-100 flex flex-col justify-center items-center gap-3 p-5 bg-gray-100 shadow-md rounded">
         <SignatureCanvas
           ref={sigRef}
+          onEnd={handleEnd}
           canvasProps={{ width: 500, height: 200 }}
         />
       </div>

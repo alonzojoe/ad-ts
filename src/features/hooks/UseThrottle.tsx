@@ -1,7 +1,9 @@
 import { useState, type ChangeEvent } from "react";
+import useThrottle from "../../hooks/useThrottle";
 
 const UseThrottle = () => {
   const [value, setValue] = useState<string>("");
+  const throttleValue = useThrottle(value, 400);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
@@ -18,7 +20,7 @@ const UseThrottle = () => {
           type="text"
         />
         <p>Value: {value}</p>
-        <p>Throttle Value: </p>
+        <p>Throttle Value: {throttleValue}</p>
       </div>
     </div>
   );

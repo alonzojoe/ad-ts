@@ -28,7 +28,7 @@ const UseLocalStorage = () => {
   return (
     <div className="flex flex-col space-y-2 items-center justify-center p-3">
       <h1 className="text-2xl font-bold">useLocalStorage</h1>
-      <div className="flex items-center justify-between text-blue-600 underline gap-5">
+      <div className="flex items-center mt-5 justify-between text-blue-600 underline gap-5">
         <span onClick={reloadPage} className="cursor-pointer">
           Reload Page
         </span>

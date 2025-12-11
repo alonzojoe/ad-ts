@@ -9,6 +9,7 @@ import HookNav from "./features/hooks/HookNav";
 import UsePrevious from "./features/hooks/UsePrevious";
 import UseLocalStorage from "./features/hooks/UseLocalStorage";
 import UseThrottle from "./features/hooks/UseThrottle";
+import UseToggle from "./features/hooks/UseToggle";
 // import Button from "./components/Button";
 // import ButtonRef from "./components/ButtonRef";
 function App() {
@@ -32,6 +33,7 @@ function App() {
             <Route path="usePrevious" element={<UsePrevious />} />
             <Route path="useLocalStorage" element={<UseLocalStorage />} />
             <Route path="useThrottle" element={<UseThrottle />} />
+            <Route path="useToggle" element={<UseToggle />} />
           </Route>
         </Route>
       </Routes>

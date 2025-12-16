@@ -36,6 +36,18 @@ export const getData = async <T>(
 
 type Payload = QueryParam
 
+export const postData = async <T, D = Payload>(
+    endpoint: string,
+    data?: D
+): Promise<T> => {
+    try {
+        const response = await api.post<T>(endpoint, data);
+        return response.data;
+    } catch (error) {
+        throw handleApiError(error);
+    }
+};
+
 export const putData = async <T, D = Payload>(
     endpoint: string,
     data?: D

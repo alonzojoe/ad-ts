@@ -7,6 +7,9 @@ export interface ApiError {
     code?: string;
 }
 
+type QueryParam = string | number | string[] | number[] | undefined | null;
+type QueryParams = Record<string, QueryParam>
+
 export class ApiServiceError extends Error {
     status?: number;
     code?: string;
@@ -19,18 +22,16 @@ export class ApiServiceError extends Error {
     }
 }
 
-export const getData = async <APIResponse>(endpoint: string): Promise<APIResponse> => {
+export const getData = async <T>(
+    endpoint: string,
+    params?: QueryParams
+): Promise<T> => {
     try {
-        const res = await api(endpoint);
-
-        return res.data as APIResponse
+        const res = await api.get<T>(endpoint, { params })
+        return res.data
     } catch (error) {
-        if (error instanceof Error) {
-            console.log('Error', error.message)
-        }
-        throw error;
+        throw handleApiError(error)
     }
-
 }
 
 

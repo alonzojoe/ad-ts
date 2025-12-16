@@ -34,6 +34,14 @@ export const getData = async <T>(
     }
 }
 
+export const deleteData = async <T>(endpoint: string): Promise<T> => {
+    try {
+        const response = await api.delete<T>(endpoint);
+        return response.data;
+    } catch (error) {
+        throw handleApiError(error);
+    }
+};
 
 export const handleApiError = (error: unknown): ApiServiceError => {
     if (error instanceof AxiosError) {
